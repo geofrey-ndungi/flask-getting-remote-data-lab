@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify
 import requests
 
 app = Flask(__name__)
@@ -11,9 +11,9 @@ def get_response():
     resp = requests.get(url)
 
     info = resp.json()
-    print(info[0])
+    
 
-    return "Hello Jeff"
+    return jsonify(info)
 
 
 
@@ -25,4 +25,4 @@ def get_response():
 
 
 if __name__ == "__main__":
-    app.run(debug= True)
+    app.run( port=5555, debug= True)
